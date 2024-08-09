@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohan's portfolio</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: poppins, sans-serif;
+            text-decoration: none;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .hero-header {
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+            background-color: #222;
+            color: aliceblue;
+        }
+
+        .wrapper {
+            width: 1280px;
+            max-width: 95%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 40px 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+
+        }
+
+        .logo {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo i {
+            height: 45px;
+            width: 45px;
+            background-color: rgb(251, 8, 49);
+            border-radius: 50%;
+            color: aliceblue;
+            font-weight: 700;
+            font-size: 1.5rem;
+            padding: 10px;
+            margin-right: 5px;
+            cursor: pointer;
+            text-align: center;
+
+        }
+
+        .logo .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        nav .togglebtn {
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            top: 45px;
+            right: 3%;
+            z-index: 5;
+            cursor: pointer;
+            display: none;
+        }
+
+        nav .togglebtn span {
+            display: block;
+            background-color: #f00c2e;
+            margin: 5px 0px;
+            width: 100%;
+            height: 3px;
+            transition: 0.3s;
+            transition-property: transform, opacity;
+
+        }
+
+        nav .navlinks {
+            list-style-type: none;
+        }
+
+        nav .navlinks li {
+            display: inline-block;
+            transition: .5s;
+        }
+
+        nav .navlinks a {
+            color: #fff;
+            margin-right: 2.5rem;
+            transition: .2s;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-top: 4rem;
+        }
+
+        .container .pic {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 10px solid #2e2d2d;
+            box-shadow: 5px 7px 25px rgba(232, 226, 226, 0.501);
+
+        }
+
+        .pic img {
+            height: 100%;
+            width: 100%;
+            transition: .8s;
+        }
+
+        .pic img:hover {
+            transform: scale(1.2);
+        }
+
+        .text {
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .text h5 {
+            color: white;
+            font-size: 14px;
+
+        }
+
+        .text h1 {
+            color: rgb(246, 6, 54);
+            font-size: 3rem;
+
+        }
+
+        .btns {
+            margin: 45px 0;
+
+        }
+
+        nav .navlinks li:hover {
+            transform: scale(1.4);
+        }
+
+        nav .navlinks li a:hover {
+            border-radius: 5px;
+            color: white;
+            color: #f00c2e;
+            transform: scale(1.2);
+        }
+
+        .btns .btn {
+            border-color: white;
+            color: white;
+            background-color: #333;
+            padding: 12px 25px;
+            margin: 5px 0;
+            margin-right: 7px;
+            border-radius: 30px;
+            border: 2px solid #e5e5e5;
+            box-shadow: 4px 4px 10px rgba(226, 219, 219, 0.518);
+
+        }
+
+        .btn.active {
+            border-color: rgba(223, 14, 49, 0.933)
+        }
+
+        .btns .btn:hover {
+            background-color: #f00c2e;
+
+        }
+
+        .btns .btn.active:hover {
+            background-color: white;
+            color: #f00c2e;
+            box-shadow: 4px 4px 10px rgba(245, 4, 28, 0.919);
+
+
+        }
+
+        @media(max-width:930px) {
+            nav .togglebtn {
+                display: initial;
+            }
+
+            .click {
+                top: 45px;
+            }
+
+            .click span {
+                position: absolute;
+                margin-top: 12px;
+            }
+
+            .click span:first-child {
+                transform: rotate(-40deg);
+            }
+
+            .click span:nth-child(2) {
+                opacity: 0;
+                margin: 0;
+            }
+
+            .click span:last-child {
+                transform: rotate(45deg);
+                top: 0;
+            }
+
+            nav .navlinks {
+                position: absolute;
+                top: 110px;
+                right: -100%;
+                bottom: 0;
+                width: 60%;
+                height: 100vh;
+                background-color: #222;
+                z-index: 3;
+                box-shadow: 5px 13px 30px rgb(0, 0, 0, 0.1);
+                transition: 0.5s;
+                padding: 25px 0px;
+            }
+
+            nav .navlinks li {
+                display: block;
+            }
+
+            nav .navlinks li a {
+                display: block;
+                margin-bottom: 15px;
+                text-align: center;
+            }
+
+            nav .navlinks.open {
+                right: 0;
+            }
+        }
+
+        @media(max-width:768px) {
+            .container {
+                flex-direction: column;
+                padding-top: 2rem;
+            }
+
+            .text {
+                padding: 40px 0px;
+            }
+        }
+
+        #about-section {
+            padding: 50px 20px;
+
+            text-align: center;
+        }
+
+        #about-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #f2f2f2;
+            text-decoration: underline;
+        }
+
+        .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+            color: rgb(10, 9, 9);
+        }
+
+        .box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.5s;
+            box-shadow: 4px 8px 10px rgba(243, 8, 47, 0.742), -2px -4px 10px rgba(255, 255, 255, 0.556);
+        }
+
+        .box:hover {
+
+            background-color: #d51240;
+            color: rgb(246, 243, 243);
+            box-shadow: 4px 4px 15px rgba(229, 228, 228, 0.703);
+            transform: scale(1.2);
+        }
+
+        .box h3 {
+            font-size: 1.5em;
+            text-decoration: underline;
+            margin-bottom: 10px;
+            color: #000000;
+        }
+
+
+        .box span {
+            color: black;
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 30px 10px;
+            }
+
+            .box h3 {
+                font-size: 1.2em;
+            }
+
+            .box p {
+                font-size: 0.9em;
+            }
+        }
+
+        #skills {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #skills h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            color: #f7f4f4;
+            text-decoration: underline;
+        }
+
+        .skill {
+            margin-bottom: 20px;
+        }
+
+        .skill h3 {
+            font-size: 1.0em;
+            margin-bottom: 10px;
+            color: #f7f1f1;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #ddddddc7;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0px 4px 15px rgba(245, 243, 243, 0.975);
+            border: 2px solid white;
+            transition: 0.5s;
+
+        }
+
+        .progress-bar:hover {
+            cursor: pointer;
+            box-shadow: 0px 4px 15px rgb(219, 17, 51);
+
+            transform: scale(1.02);
+        }
+
+        .progress {
+            height: 15px;
+            border-radius: 10px;
+            position: relative;
+            animation: progress-animation 2s ease-out forwards;
+        }
+
+        .progress.html {
+            width: 80%;
+            background-color: #e44d26;
+        }
+
+        .progress.css {
+            width: 80%;
+            /* CSS skill percentage */
+            background-color: #264de4;
+        }
+
+        .progress.javascript {
+            width: 90%;
+            /* JavaScript skill percentage */
+            background-color: #ceb305;
+        }
+
+        .progress.react {
+            width: 65%;
+            /* React skill percentage */
+            background-color: #23aed4;
+        }
+
+        @keyframes progress-animation {
+            0% {
+                width: 0;
+            }
+
+            100% {}
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #skills {
+                padding: 10px;
+            }
+
+            #skill h3 {
+                font-size: 1em;
+            }
+        }
+
+        #skills .skill i {
+            font-size: 25px;
+
+        }
+
+        #contact {
+            padding: 50px 20px;
+
+
+
+        }
+
+        #contact .container {
+            max-width: 700px;
+            margin: 0 auto;
+            margin-top: -50px;
+        }
+
+        #contact .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #f7f4f4;
+            text-decoration: underline;
+        }
+
+        .form-group {
+
+            margin-bottom: 20px;
+            width: 400px;
+
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: 5px;
+            font-weight: 900;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"] {
+
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #000000;
+            border-radius: 4px;
+            font-size: 18px;
+            box-shadow: 4px 4px 10px rgb(223, 10, 46), -2px -2px 8px rgba(255, 255, 255, 0.527);
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #000000;
+            border-radius: 4px;
+            font-size: 20px;
+            box-shadow: 4px 4px 10px rgb(223, 10, 46), -2px -2px 8px rgba(255, 255, 255, 0.527);
+        }
+
+        #send {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #0ce92a;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+
+            cursor: pointer;
+        }
+
+        #send:hover {
+            background-color: rgb(234, 10, 48);
+
+        }
+
+
+        @media (max-width: 768px) {
+            #contact {
+                padding: 20px 50px;
+            }
+
+            .form-group {
+                width: auto;
+            }
+
+            #contact .container h2 {
+                font-size: 30px;
+            }
+
+            #send {
+                font-size: 14px;
+            }
+
+        }
+
+        #details {
+
+            padding: 50px 20px;
+            text-align: center;
+            background-color: rgba(44, 42, 42, 0.608);
+        }
+
+        #details h4 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.5em;
+            color: #f7f4f4;
+
+        }
+
+        .social i {
+            color: white;
+            font-size: 30px;
+            margin-right: 10px;
+            transition: .8s;
+
+        }
+
+        .social i:hover {
+            color: rgb(234, 18, 54);
+            transform: rotate(360deg);
+
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .contact-info a {
+            color: #0979e9;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            cursor: pointer;
+            color: rgb(237, 14, 51);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero-header">
+
+        <div class="wrapper">
+
+            <header>
+
+                <div class="logo">
+
+                    <i class="fa-solid fa-r"></i>
+
+                    <div class="logo-text">Rohan Roy</div>
+
+                </div>
+
+                <nav>
+
+                    <div class="togglebtn">
+
+                        <span></span>
+
+                        <span></span>
+
+                        <span></span>
+
+                    </div>
+
+                    <ul class="navlinks">
+
+                        <li><a href="#home">Home</a></li>
+
+
+
+                        <li><a href="#about-section">About</a></li>
+
+                        <li><a href="#skills">Skills</a></li>
+
+                        <li><a href="#contact">Contact</a></li>
+
+
+                    </ul>
+
+                </nav>
+            </header>
+            <section id="home">
+                <div class="container">
+                    <div class="pic">
+                        <img src="./ROHAN_ROY.jpg" alt="profile pic">
+                    </div>
+                    <div class="text">
+                        <h3>Hi I'm</h3>
+                        <h1>ROHAN ROY</h1>
+                        <h2>i am a <span style="color: rgb(238, 14, 51);" class="input"></span></h2> <br>
+                        <p>Hi, I'm Rohan Roy, a Software Engineer.
+                            I specialize in crafting efficient, scalable, and user-friendly software solutions. My
+                            passion lies in bringing innovative ideas to life through code, and I'm always excited to
+                            take on new challenges that push the boundaries of technology. Welcome to my portfolio!</p>
+                        <div class="btns">
+                            <a href="./ROHAN_ROY_RESUME.pdf" class="btn active">Download CV</a>
+                            <a href="#details" class="btn">Details</a>
+                        </div>
+                        <br>
+
+                    </div>
+                </div>
+            </section>
+            <br>
+            <br>
+            <section id="about-section">
+                <h2>About</h2>
+                <div class="box-container">
+                    <div class="box">
+                        <h3>Myself</h3>
+                        <p>I'm passionate software engineer with a knack for turning complex problems into
+                            elegant solutions. With a strong foundation in modern web technologies, I enjoy creating
+                            user-friendly and efficient applications. Welcome to my portfolio, where you can explore my
+                            work and get to know more about my journey in the tech world.</p>
+                    </div>
+                    <div class="box">
+                        <h3>Education</h3>
+                        <p><span style="color: #000000;text-decoration:underline;font-weight: 900;"> B.Tech</span>: CSE
+                            (2021 - 2025)</p><br>
+                        <p><span style="color: #000000;text-decoration:underline;font-weight: 900;">Clg</span>: Future
+                            Institute Of Engineering &Management(Under MAKAUT) 8.54(current CGPA) </p><br>
+
+                        <p><span style="color: #000000;text-decoration:underline;font-weight: 900;">Higher
+                                Secondary</span>: WBCHSE(KHATRA HIGH SCHOOL) 85.6% (2021)</p><br>
+                        <p><span style="color: #000000;text-decoration:underline;font-weight: 900;">Secondary</span>:
+                            WBBSE(KANGSABATI SISHU VIDYALAYA) 88.8% (2019)</p> <br>
+
+                    </div>
+                    <div class="box">
+                        <h3>Web Developer</h3>
+                        <p>I specialize in creating responsive, user-friendly websites with a strong focus on
+                            performance and accessibility. My expertise spans front-end technologies like HTML, CSS,
+                            JavaScript, and React, enabling me to build visually appealing and highly functional web
+                            applications. Whether it's crafting a sleek landing page or developing a complex web app, I
+                            aim to deliver experiences that are both engaging and effective.
+
+                        </p>
+                    </div>
+                    <div class="box">
+                        <h3>UI/UX Design</h3>
+                        <p>Crafting intuitive and visually compelling interfaces is at the core of my design philosophy.
+                            My approach blends creativity with usability, ensuring that every design not only looks
+                            great but also delivers a seamless and enjoyable user experience. From wireframes to final
+                            designs, I focus on creating user-centric solutions that align with the latest trends and
+                            best practices in UI/UX design.
+
+                        </p>
+                    </div>
+                    <div class="box">
+                        <h3>Software Engineer</h3>
+                        <p>As a passionate software engineer, I thrive on turning complex problems into efficient,
+                            scalable solutions. With a strong foundation in front-end and back-end development, I create
+                            robust applications that not only perform seamlessly but also provide a smooth and intuitive
+                            user experience. My expertise spans multiple programming languages and frameworks, enabling
+                            me to build dynamic, high-performance software tailored to meet the unique needs of each
+                            project.</p>
+                    </div>
+                    <div class="box">
+                        <h3>Team Worker</h3>
+                        <p>As a collaborative and adaptable team player, I thrive in dynamic environments where
+                            collective problem-solving and shared goals drive success. My ability to communicate
+                            effectively, listen actively, and contribute meaningfully ensures that I not only support my
+                            team but also help elevate our projects to new heights. Whether brainstorming creative
+                            solutions or executing detailed plans, I believe in the power of teamwork to achieve
+                            remarkable results.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="skills">
+                <h2>Technical Skills</h2>
+
+                <div class="skill">
+                    <i class='bx bxl-html5' style="color:#e44d26;"></i>
+                    <h3>HTML</h3>
+                    <div class="progress-bar">
+                        <div class="progress html"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <i class='bx bxl-css3' style="color: #264de4;"></i>
+                    <h3>CSS</h3>
+                    <div class="progress-bar">
+                        <div class="progress css"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <i class='bx bxl-javascript' style="color:#f0db4f;"></i>
+                    <h3>JavaScript</h3>
+                    <div class="progress-bar">
+                        <div class="progress javascript"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <i class='bx bxl-react' style="color:#61dafb;"></i>
+                    <h3>React</h3>
+                    <div class="progress-bar">
+                        <div class="progress react"></div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <section id="contact">
+                    <h2>Contact</h2>
+                    <div class="container">
+
+                        <form action="https://formspree.io/f/meojkkoe" method="POST">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="mob">Contact No</label>
+                                <input type="number" id="mob" name="mob" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" id="send">Send</button>
+                        </form>
+                    </div>
+
+                </section>
+                <section id="details">
+                    <h4>Details</h4>
+                    <div class="content">
+                        <div class="social">
+                            <a href="https://www.facebook.com/profile.php?id=100022210606912"><i
+                                    class="fa-brands fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/rohan-roy-4a29802a8/"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://github.com/Rohan-roy07"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                        <br><br>
+                        <div class="contact-info">
+                            <p>Email: <a href="">akshyaroy2003@gmail.com</a></p>
+                            <p>Contact No: <a href="tel:+1234567890">9368403399</a></p>
+                        </div>
+                    </div>
+                </section>
+                <br>
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.js"></script>
+
+<script>
+    var togglebtn = document.querySelector(".togglebtn");
+    var nav = document.querySelector(".navlinks");
+    var links = document.querySelector(".navlinks li");
+    togglebtn.addEventListener("click", function () {
+        this.classList.toggle("click");
+        nav.classList.toggle("open");
+    })
+    let typed = new Typed(".input", {
+        strings: ["Frontend Developer", "Backend Developer", "Software Engineer", "Coder", "Web Developer"],
+        typedSpeed: 40,
+        backSpeed: 10,
+        loop: true,
+    })
+</script>
+
+</html>
